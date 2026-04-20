@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hot Beans - Web Development Courses</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background-color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      padding: 50px 0 70px;
+      text-align: center;
+      position: relative;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .tagline {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #666;
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: #555;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Courses Grid - 3 Columns */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .course-card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 30px 25px;
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      border-color: #ff4d4d;
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      background-color: #f8f8f8;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #ff4d4d;
+    }
+
+    .course-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+      color: #222;
+    }
+
+    .course-card p {
+      color: #555;
+      font-size: 1.02rem;
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+
+    .read-more {
+      color: #ff4d4d;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+            /* Footer */
+            footer {
+      padding: 80px 5% 40px;
+      border-top: 1px solid #eee;
+      background-color: #000;
+      color: #ccc;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-left {
+      max-width: 280px;
+    }
+
+    .footer-left .logo {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 10px;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="top-bar">
+        <img src="HBlogo.png" alt="Hot Beans Logo" width="120" height="70" style="cursor: pointer;" onclick="window.location.href='HB.html'">
+        <div class="tagline">Brewing Digital Talent</div>
+      </div>
+      
+      <h1>Web Development Courses for Trainees</h1>
+      <p class="subtitle">
+        Curated learning paths to help you master modern web development skills.
+      </p>
+    </header>
+
+    <!-- Courses Grid -->
+    <div class="courses-grid">
+
+      <!-- Course 1: HTML & CSS Mastery -->
+      <div class="course-card">
+        <div class="icon">🌐</div>
+        <h3>HTML & CSS Mastery</h3>
+        <p>Build beautiful, responsive websites from scratch. Learn semantic HTML5, modern CSS3, Flexbox, Grid, and responsive design techniques.</p>
+        <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/" target="_blank" class="read-more">
+          Start Learning →
+        </a>
+      </div>
+
+      <!-- Course 2: JavaScript Fundamentals -->
+      <div class="course-card">
+        <div class="icon">⚡</div>
+        <h3>JavaScript Fundamentals</h3>
+        <p>Master the core language of the web. Variables, functions, DOM manipulation, events, async/await, and ES6+ features.</p>
+        <a href="https://javascript.info/" target="_blank" class="read-more">
+          Start Learning →
+        </a>
+      </div>
+
+      <!-- Course 3: React.js -->
+      <div class="course-card">
+        <div class="icon">⚛️</div>
+        <h3>React.js for Beginners</h3>
+        <p>Learn the most popular frontend framework. Components, hooks, state management, routing, and building dynamic single-page applications.</p>
+        <a href="https://react.dev/learn" target="_blank" class="read-more">
+          Start Learning →
+        </a>
+      </div>
+
+      <!-- Course 4: Tailwind CSS -->
+      <div class="course-card">
+        <div class="icon">🎨</div>
+        <h3>Tailwind CSS</h3>
+        <p>Build modern, responsive designs faster with utility-first CSS. Master customization, dark mode, and responsive workflows.</p>
+        <a href="https://tailwindcss.com/docs/installation" target="_blank" class="read-more">
+          Start Learning →
+        </a>
+      </div>
+
+      <!-- Course 5: Git & GitHub -->
+      <div class="course-card">
+        <div class="icon">🐙</div>
+        <h3>Git & GitHub</h3>
+        <p>Version control essentials every developer needs. Branching, pull requests, collaboration, and professional workflow using GitHub.</p>
+        <a href="https://www.freecodecamp.org/learn/relational-database/" target="_blank" class="read-more">
+          Start Learning →
+        </a>
+      </div>
+
+      <!-- Course 6: Next.js -->
+      <div class="course-card">
+        <div class="icon">▲</div>
+        <h3>Next.js 15</h3>
+        <p>Build full-stack web applications with React. Server components, app router, API routes, and production-ready features.</p>
+        <a href="https://nextjs.org/learn" target="_blank" class="read-more">
+          Start Learning →
+        </a>
+      </div>
+
+    </div>
+  </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+          <div class="footer-left">
+            <div class="logo">Hot Beans</div>
+            <p><strong>Address:</strong><br>
+              123 Main Street, London<br>
+              London, England
+            </p>
+            <div class="social-icons">
+              <a href="#">📸</a>
+              <a href="#">𝕏</a>
+              <a href="#">𝕗</a>
+            </div>
+          </div>
+    
+          <div class="footer-columns">
+            <div class="footer-column">
+              <h4>Company</h4>
+              <a href="#">About Us</a>
+              <a href="#">Our Work</a>
+              <a href="#">Careers</a>
+            </div>
+            <div class="footer-column">
+              <h4>Services</h4>
+              <a href="#">Web Design</a>
+              <a href="#">Development</a>
+              <a href="#">Branding</a>
+              <a href="#">SEO</a>
+            </div>
+            <div class="footer-column">
+              <h4>Resources</h4>
+              <a href="#">Blog</a>
+              <a href="#">Contact</a>
+              <a href="#">Support</a>
+</body>
+</html>

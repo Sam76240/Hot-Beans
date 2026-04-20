@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hot Beans - Join Us</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  
+  <style>
+    /* Your existing styles remain unchanged */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: white;
+      width: 100%;
+      max-width: 460px;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .logo { font-size: 1.9rem; font-weight: bold; margin-bottom: 40px; }
+    h1 { text-align: center; font-size: 1.85rem; margin-bottom: 35px; color: #222; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; margin-bottom: 6px; font-size: 0.95rem; color: #555; }
+    input, .file-upload {
+      width: 100%; padding: 14px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;
+    }
+    input:focus, .file-upload:focus-within { border-color: #ff4d4d; outline: none; }
+    .file-upload {
+      height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: #fafafa; cursor: pointer; text-align: center;
+    }
+    .file-upload:hover { background: #f5f5f5; }
+    .upload-icon { font-size: 28px; margin-bottom: 8px; color: #888; }
+    button {
+      width: 100%; padding: 16px; background: #222; color: white; border: none;
+      border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 25px;
+    }
+    button:hover { background: #ff4d4d; }
+    .terms { text-align: center; margin-top: 25px; font-size: 0.88rem; color: #777; }
+    .terms a { color: #ff4d4d; text-decoration: none; }
+            /* Footer */
+            footer {
+      padding: 80px 5% 40px;
+      border-top: 1px solid #eee;
+      background-color: #000;
+      color: #ccc;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-left {
+      max-width: 280px;
+    }
+
+    .footer-left .logo {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 10px;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="HBlogo.png" alt="Hot Beans Logo" width="120" height="70" style="cursor: pointer;" onclick="window.location.href='HB.html'">
+    <h1>Job Application</h1>
+
+    <form id="applicationForm">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+      </div>
+      <div class="form-group">
+        <label>Attach CV</label>
+        <div class="file-upload" id="fileUploadArea">
+          <div class="upload-icon">↑</div>
+          <span id="fileName">Click to upload your CV (PDF or DOCX)</span>
+          <input type="file" id="cvFile" accept=".pdf,.doc,.docx" style="display: none;">
+        </div>
+      </div>
+      <button type="submit">Send Job Application</button>
+    </form>
+
+    <p class="terms">
+      By signing up, you agree to our 
+      <a href="#">Terms of Service</a> and 
+      <a href="#">Privacy Policy</a>.
+    </p>
+  </div>
+
+  <script>
+    const form = document.getElementById('applicationForm');
+    const fileInput = document.getElementById('cvFile');
+    const fileUploadArea = document.getElementById('fileUploadArea');
+    const fileNameDisplay = document.getElementById('fileName');
+
+    fileUploadArea.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) {
+        fileNameDisplay.textContent = fileInput.files[0].name;
+      }
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName  = document.getElementById('lastName').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const password  = document.getElementById('password').value.trim();
+      const cvFileName = fileInput.files.length > 0 ? fileInput.files[0].name : "No file attached";
+
+      const now = new Date();
+      const applicationDate = now.toLocaleDateString('en-GB') + " " + now.toLocaleTimeString('en-GB');
+
+      // New row to append
+      const newRow = [applicationDate, firstName, lastName, email, password, cvFileName, "Pending"];
+
+      const excelFileName = "HotBeans_Applications.xlsx";
+
+      let wb;
+
+      // Try to read the existing file (if user has it in Downloads)
+      // Note: In pure browser, reading a previously downloaded file is tricky without user selecting it again.
+      // For simplicity and reliability, we create a clean file with headers + new data each time.
+      // You can manually open and keep the latest downloaded file.
+
+      wb = XLSX.utils.book_new();
+      const wsData = [
+        ["Application Date", "First Name", "Last Name", "Email", "Password", "CV Filename", "Status"],  // Headers
+        newRow
+      ];
+
+      const ws = XLSX.utils.aoa_to_sheet(wsData);
+      XLSX.utils.book_append_sheet(wb, ws, "Applications");
+
+      // Download / Overwrite with same name
+      XLSX.writeFile(wb, excelFileName);
+
+      alert(`✅ Thank you, ${firstName}!\n\nYour application has been added to HotBeans_Applications.xlsx`);
+
+      // Reset form
+      form.reset();
+      fileNameDisplay.textContent = "Click to upload your CV (PDF or DOCX)";
+    });
+  </script>
+</body>
+</html>

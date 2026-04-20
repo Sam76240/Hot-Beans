@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hot Beans - Web Development Trainee</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background-color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header - Matching Wireframe */
+    header {
+      padding: 50px 0 70px;
+      text-align: center;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .tagline {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #666;
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    /* Force 2x2 Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);     /* Always 2 columns */
+      gap: 40px 30px;
+      margin-top: 20px;
+    }
+
+    .feature-card {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      background-color: #f8f8f8;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+      color: #ff4d4d;
+    }
+
+    .feature-content h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+      color: #222;
+    }
+
+    .feature-content p {
+      color: #555;
+      font-size: 1.02rem;
+    }
+
+    .salary {
+      color: #00b300;
+      font-weight: 600;
+    }
+
+    .bonus {
+      color: #d97706;
+      font-weight: 600;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);   /* Still 2x2 on tablets */
+        gap: 30px 20px;
+      }
+      
+      h1 {
+        font-size: 2.3rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr;   /* Stack to 1 column only on very small phones */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="top-bar">
+        <img src="HBlogo.png" alt="Hot Beans Logo" width="120" height="70" style="cursor: pointer;" onclick="window.location.href='HB.html'">
+        <div class="tagline">Brewing Digital Talent</div>
+      </div>
+      
+      <h1>Web Development Trainee Program</h1>
+      <p class="subtitle">
+        Join our hands-on training program and kickstart your career in modern web development.
+      </p>
+    </header>
+
+    <!-- 2x2 Features Grid -->
+    <div class="features-grid">
+
+      <!-- Qualifications -->
+      <div class="feature-card">
+        <div class="icon">🎓</div>
+        <div class="feature-content">
+          <h3>Qualifications</h3>
+          <p>Currently pursuing or recently completed a degree in Computer Science, Web Development, or related field. Basic understanding of HTML, CSS, and JavaScript.</p>
+        </div>
+      </div>
+
+      <!-- Requirements -->
+      <div class="feature-card">
+        <div class="icon">📋</div>
+        <div class="feature-content">
+          <h3>Requirements</h3>
+          <p>Basic knowledge of HTML5, CSS3, and JavaScript. Familiarity with Git is a plus. Strong desire to learn modern frameworks like React and Tailwind CSS.</p>
+        </div>
+      </div>
+
+      <!-- Program Duration -->
+      <div class="feature-card">
+        <div class="icon">⏱️</div>
+        <div class="feature-content">
+          <h3>Program Duration</h3>
+          <p>6-month intensive training program with real client projects. Weekly mentoring sessions, code reviews, and hands-on experience building live websites.</p>
+        </div>
+      </div>
+
+      <!-- Salary & Benefits -->
+      <div class="feature-card">
+        <div class="icon">💰</div>
+        <div class="feature-content">
+          <h3>Salary & Benefits</h3>
+          <p class="salary">$42,000 – $48,000 per year (trainee stipend)</p>
+          <p class="bonus">• Full health, dental & vision insurance<br>
+             • 401(k) with company match<br>
+             • Flexible hybrid schedule<br>
+             • 15 days paid time off<br>
+             • Monthly learning budget<br>
+             • Free coffee & snacks daily</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

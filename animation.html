@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee Loader → Auto Animation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GSAP -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #000000;
+      color: white;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ==================== COFFEE LOADER ==================== */
+    #loader-screen {
+      position: absolute;
+      inset: 0;
+      background: #0f0e17;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: opacity 1.2s ease-out;
+    }
+
+    .loader {
+      position: relative;
+      width: 260px;
+      height: 300px; /* extra height for text below */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    svg {
+      width: 240px;
+      height: 240px;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+    }
+
+    .coffee {
+      animation: fillSteps 11s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes fillSteps {
+      0%    { transform: translateY(100px); }
+      10%   { transform: translateY(100px); }
+      20%   { transform: translateY(60px); }
+      30%   { transform: translateY(40px); }
+      50%   { transform: translateY(20px); }
+      60%   { transform: translateY(0px); } 
+      70%   { transform: translateY(-20px); } 
+      80%   { transform: translateY(-40px); } 
+      90%   { transform: translateY(-60px); }
+      100%  { transform: translateY(-100px); } 
+    }
+
+    .bean {
+      animation: drop linear infinite;
+      transform-origin: center;
+    }
+
+    @keyframes drop {
+      0% {
+        transform: translateY(-50px) translateX(-25px) rotate(0deg) scale(0.9);
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      80% { opacity: 0.95; }
+      100% {
+        transform: translateY(-50px) translateX(-25px) rotate(900deg) scale(0.7);
+        opacity: 0;
+      }
+    }
+
+    .bean:nth-child(1)  { animation-duration: 2.6s; animation-delay: 1.2s; }
+    .bean:nth-child(2)  { animation-duration: 2.9s; animation-delay: 1.8s; }
+    .bean:nth-child(3)  { animation-duration: 2.3s; animation-delay: 2.5s; }
+    .bean:nth-child(4)  { animation-duration: 3.1s; animation-delay: 3.2s; }
+    .bean:nth-child(5)  { animation-duration: 2.4s; animation-delay: 4.0s; }
+    .bean:nth-child(6)  { animation-duration: 2.7s; animation-delay: 4.9s; }
+    .bean:nth-child(7)  { animation-duration: 2.5s; animation-delay: 5.8s; }
+    .bean:nth-child(8)  { animation-duration: 3.0s; animation-delay: 6.7s; }
+
+    .loader-text {
+      margin-top: 330px;
+      margin-left: -50px;
+      color: #e8d9c5;
+      font-size: 1.45rem;
+      font-weight: 500;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 9.5s forwards;
+      white-space: nowrap;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 0.95; }
+    }
+
+    /* ==================== MAIN ANIMATION ==================== */
+    #main-animation {
+      position: absolute;
+      inset: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 1.2s ease-out;
+    }
+
+    .container {
+      position: relative;
+      width: 420px;
+      height: 420px;
+    }
+
+    .dots {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .dot {
+        margin-top: 130px;
+        width: 11px;
+      height: 11px;
+      background: #38bdf8;
+      border-radius: 50%;
+    }
+
+    .text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.1rem;
+      max-width: 700px;
+      text-align: center;
+      opacity: 0;
+      z-index: 2;
+      line-height: 1.1;
+    }
+
+    #text1 { top: 160px; }
+    #text2 { top: 160px; }
+    #text3 { top: 210px; font-size: 2.4rem; font-weight: 600; margin-top: -10px;}
+
+    svg {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 320px;
+      height: 320px;
+    }
+
+    path {
+      stroke: #facc15;
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 620;
+      stroke-dashoffset: 620;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Coffee Loader -->
+  <div id="loader-screen">
+    <div class="loader">
+      <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="cupClip">
+            <circle cx="120" cy="120" r="92"/>
+          </clipPath>
+        </defs>
+        <circle cx="120" cy="120" r="100" fill="#ffe8c8" stroke="#d4a372" stroke-width="18"/>
+        <circle cx="120" cy="120" r="92" fill="#fff5e6" opacity="0.9"/>
+        <ellipse cx="245" cy="115" rx="26" ry="20" fill="#d4a372"/>
+        <ellipse cx="245" cy="115" rx="18" ry="8" fill="#ffe8c8"/>
+
+        <g clip-path="url(#cupClip)">
+          <rect class="coffee" x="20" y="120" width="200" height="250" fill="#3a2215"/>
+        </g>
+
+        <g>
+          <ellipse class="bean" cx="80"  cy="0" rx="14" ry="7" fill="#5c3a1c"/>
+          <ellipse class="bean" cx="110" cy="0" rx="12" ry="8" fill="#4a2e12"/>
+          <ellipse class="bean" cx="140" cy="0" rx="13" ry="6" fill="#3f220d"/>
+          <ellipse class="bean" cx="95"  cy="0" rx="15" ry="7" fill="#6a4625"/>
+          <ellipse class="bean" cx="125" cy="0" rx="11" ry="7" fill="#523214"/>
+          <ellipse class="bean" cx="155" cy="0" rx="12" ry="6" fill="#3e1f0b"/>
+          <ellipse class="bean" cx="70"  cy="0" rx="13" ry="6.5" fill="#583b1f"/>
+          <ellipse class="bean" cx="170" cy="0" rx="14" ry="7" fill="#44270e"/>
+        </g>
+      </svg>
+      <div class="loader-text">Brewing your content...</div>
+    </div>
+  </div>
+
+  <!-- Main Auto Animation -->
+  <div id="main-animation">
+    <div class="container">
+
+      <!-- Typing dots -->
+      <div class="dots" id="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+           <!-- Texts -->
+           <div class="text" id="text1">That wasn't a buffer</div>
+           <div class="text" id="text2">Want to learn how to do that?</div>
+           <div class="text" id="text3" style="cursor: pointer;" onclick="window.location.href='HB.html'">Sign up today</div>
+
+      <!-- Yellow Circle - Clickable -->
+      <div onclick="window.location.href='HB.html'" style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); cursor: pointer;">
+        <svg viewBox="0 0 200 200" style="width: 320px; height: 320px;">
+          <path id="arc1" d="M 20 100 A 80 80 0 0 1 180 100" />
+          <path id="arc2" d="M 180 100 A 80 80 0 0 1 20 100" />
+        </svg>
+      </div>
+  </div>
+
+<script>
+  gsap.registerPlugin();
+
+  const loaderScreen = document.getElementById('loader-screen');
+  const mainAnimation = document.getElementById('main-animation');
+
+  setTimeout(() => {
+    loaderScreen.style.opacity = '0';
+
+    setTimeout(() => {
+      loaderScreen.style.display = 'none';
+      mainAnimation.style.display = 'flex';
+
+      setTimeout(() => {
+        mainAnimation.style.opacity = '1';
+        startAutoAnimation();
+      }, 80);
+
+    }, 1200);
+
+  }, 12500);
+
+  function startAutoAnimation() {
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+    // Dots appear + bounce
+    tl.from(".dot", { y: 25, opacity: 0, duration: 0.5, stagger: 0.12 });
+    tl.to(".dot", { 
+      y: -14, 
+      repeat: 5, 
+      yoyo: true, 
+      duration: 0.48, 
+      stagger: 0.1 
+    }, "-=0.6");
+
+    // Hide dots
+    tl.to("#dots", { opacity: 0, duration: 0.7 }, "+=0.3");
+
+    // Text 1
+    tl.to("#text1", { opacity: 1, duration: 0.9 }, "+=0.4");
+    tl.to("#text1", { duration: 1 });
+    tl.to("#text1", { opacity: 0, duration: 0.6 });
+
+    // Text 2
+    tl.to("#text2", { opacity: 1, duration: 0.9 }, "+=0.3");
+    tl.to("#text2", { duration: 1.5 });
+    tl.to("#text2", { opacity: 0, duration: 0.6 });
+
+    // Draw yellow circle
+    tl.to("#arc1", { strokeDashoffset: 0, duration: 1 }, "+=0.4");
+    tl.to("#arc2", { strokeDashoffset: 0, duration: 1 }, "-=1.3");
+
+    // Final text
+    tl.to("#text3", { opacity: 1, duration: 0.8 }, "+=0.6");
+    tl.to("#text3", { duration: 0.5 });
+  }
+</script>
+
+</body>
+</html>

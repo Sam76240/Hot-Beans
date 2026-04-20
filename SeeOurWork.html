@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hot Beans | Our Work</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      padding: 80px 0 90px;
+      text-align: center;
+      background: linear-gradient(to bottom, #ffffff, #f0f2f5);
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .tagline {
+      color: #666;
+      font-size: 1.15rem;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 2.85rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #222;
+    }
+
+    .subtitle {
+      font-size: 1.28rem;
+      color: #555;
+      max-width: 720px;
+      margin: 0 auto 60px;
+    }
+
+    /* Features Grid - 3 Columns */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+      padding-bottom: 100px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 42px 34px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.09);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.13);
+    }
+
+    .icon {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 28px;
+      background-color: #f8f8f8;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: #ff4d4d;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+      color: #222;
+    }
+
+    .company {
+      color: #ff4d4d;
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+    }
+
+    .feature-card p {
+      color: #666;
+      font-size: 1.06rem;
+      line-height: 1.65;
+    }
+
+    .read-more {
+      margin-top: 26px;
+      display: inline-block;
+      color: #ff4d4d;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+            /* Footer */
+            footer {
+      padding: 80px 5% 40px;
+      border-top: 1px solid #eee;
+      background-color: #000;
+      color: #ccc;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-left {
+      max-width: 280px;
+    }
+
+    .footer-left .logo {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 10px;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      .feature-card { padding: 34px 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+        <img src="HBlogo.png" alt="Hot Beans Logo" width="120" height="70" style="cursor: pointer;" onclick="window.location.href='HB.html'">
+      <div class="tagline">Brewing Digital Talent</div>
+      
+      <h1>Featured Projects</h1>
+      <p class="subtitle">
+        We’ve had the privilege of working with some of the world’s most recognized brands. 
+        Here are a few standout projects that showcase our expertise in modern web development.
+      </p>
+    </header>
+
+    <!-- 3-Column Projects Grid -->
+    <div class="features-grid">
+
+      <!-- Project 1 -->
+      <div class="feature-card">
+        <div class="icon">☕</div>
+        <h3>Starbucks Mobile Ordering Platform</h3>
+        <div class="company">Starbucks • 2024</div>
+        <p>
+          Designed and developed the next-generation web-based mobile ordering system. 
+          Built with React and Next.js, resulting in a 47% faster checkout experience and seamless integration with their loyalty program.
+        </p>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="feature-card">
+        <div class="icon">🏦</div>
+        <h3>Chase Bank Digital Banking Redesign</h3>
+        <div class="company">Chase • 2025</div>
+        <p>
+          Complete overhaul of Chase’s consumer banking portal. Delivered a modern, secure, and highly accessible interface used by millions of customers daily, with enhanced security features and improved navigation.
+        </p>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="feature-card">
+        <div class="icon">📱</div>
+        <h3>Nike Global Product Showcase</h3>
+        <div class="company">Nike • 2023</div>
+        <p>
+          Built Nike’s flagship product discovery and customization website. 
+          Featured advanced 3D product viewers, real-time inventory, and a highly engaging shopping experience that increased online conversion rates by 32%.
+        </p>
+      </div>
+
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+          <div class="footer-left">
+            <div class="logo">Hot Beans</div>
+            <p><strong>Address:</strong><br>
+              123 Main Street, London<br>
+              London, England
+            </p>
+            <div class="social-icons">
+              <a href="#">📸</a>
+              <a href="#">𝕏</a>
+              <a href="#">𝕗</a>
+            </div>
+          </div>
+    
+          <div class="footer-columns">
+            <div class="footer-column">
+              <h4>Company</h4>
+              <a href="#">About Us</a>
+              <a href="#">Our Work</a>
+              <a href="#">Careers</a>
+            </div>
+            <div class="footer-column">
+              <h4>Services</h4>
+              <a href="#">Web Design</a>
+              <a href="#">Development</a>
+              <a href="#">Branding</a>
+              <a href="#">SEO</a>
+            </div>
+            <div class="footer-column">
+              <h4>Resources</h4>
+              <a href="#">Blog</a>
+              <a href="#">Contact</a>
+              <a href="#">Support</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+  </div>
+
+</body>
+</html>

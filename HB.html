@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #c2c2c2;
+      background-color: #fff;
+    }
+
+    /* Header */
+    header {
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    nav a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: #979797;
+  font-weight: 500;
+  transition: all 0.3s ease;     /* Smooth animation */
+  display: inline-block;         /* Important for transform to work properly */
+}
+
+nav a:hover {
+  color: #ff0000;
+  transform: scale(1.15);        /* Enlarges the text by 15% */
+}
+
+    .sign-up-btn {
+      background-color: #353535;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block; 
+    }
+
+    .sign-up-btn:hover {
+      background-color: #ff0000;
+     transform: scale(1.15);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 5% 80px;
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      color: #111;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      margin-right: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background-color: #111;
+      color: white;
+      transition: all 0.3s ease;
+      display: inline-block; 
+    }
+
+    .btn-primary:hover {
+      background-color: #ff0000;
+     transform: scale(1.15);
+    }
+
+    .btn-secondary {
+      background-color: #f1f1f1;
+      color: #111;
+      transition: all 0.3s ease;
+      display: inline-block; 
+    }
+
+    .btn-secondary:hover {
+      background-color: #ff0000;
+      color: white;
+     transform: scale(1.15);
+    }
+
+    /* Office Image */
+    .hero-image {
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      padding: 80px 5% 40px;
+      border-top: 1px solid #eee;
+      background-color: #000;
+      color: #ccc;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-left {
+      max-width: 280px;
+    }
+
+    .footer-left .logo {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 10px;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    @media (max-width: 968px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-image {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header><img src="HBlogo.png" alt="Hot Beans Logo" width="120" height="70" style="cursor: pointer;" onclick="window.location.href='HB.html'">
+    
+    <nav>
+      <a href="trainees.html">Current Trainees</a>
+      <a href="JobSpecifications.html">Job Specifications</a>
+      <a href="WebDevCourses.html">Web Dev Courses</a>
+    </nav>
+    <a href="SignUp.html" class="sign-up-btn">Sign Up</a>
+  </header>
+
+  <!-- Hero Section with Office Image on the left -->
+  <section class="hero">
+    <!-- Office Image on the left -->
+    <div class="hero-image">
+      <img src="office.jpg" alt="Hot Beans Office" width="120" height="70">
+    </div>
+
+    <!-- Text content on the right -->
+    <div class="hero-text">
+      <p class="tagline">We welcome you to Hot Beans with open arms</p>
+      <h1>"Build websites that last centuries"</h1>
+      <p>
+        Here at Hot Beans, we craft beautiful, high-performance websites that don't just look great — they’re built to endure. 
+        From sleek designs to rock-solid code, we turn your vision into a digital masterpiece.
+      </p>
+      
+      <div class="buttons">
+        <a href="GetAQuote.html" class="btn btn-primary">Get a Quote</a>
+        <a href="SeeOurWork.html" class="btn btn-secondary">See Our Work</a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="logo">Hot Beans</div>
+          <p><strong>Address:</strong><br>
+            123 Main Street, London<br>
+            London, England
+          </p>
+          <div class="social-icons">
+            <a href="#">📸</a>
+            <a href="#">𝕏</a>
+            <a href="#">𝕗</a>
+          </div>
+        </div>
+  
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="SeeOurWork.html">Our Work</a>
+            <a href="#">Careers</a>
+          </div>
+          <div class="footer-column">
+            <h4>Services</h4>
+            <a href="#">Web Design</a>
+            <a href="#">Development</a>
+            <a href="#">Branding</a>
+            <a href="#">SEO</a>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+            <a href="#">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
